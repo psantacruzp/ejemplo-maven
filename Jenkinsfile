@@ -10,7 +10,7 @@ pipeline {
             }
         }
 		
-		stage('Sonar') {
+		stage('Sonarr') {
             steps {
                 script {
                     bat "mvn clean test -e"
