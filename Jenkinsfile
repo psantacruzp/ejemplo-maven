@@ -13,7 +13,7 @@ pipeline {
 		stage('Sonarr') {
             steps {
                 script {
-                    bat "mvn sonar:sonar / -Dsonar.projectKey=ejemplo-maven-developer / -Dsonar.host.url=localhost:9000 / -Dsonar.login=63e507533300f7aa97b93ebb5b7dfd050cf6dacb"
+                    bat "mvn sonar:sonar / -Dsonar.projectKey=ejemplo-maven-developer / -Dsonar.host.url=http:localhost:9000 / -Dsonar.login=63e507533300f7aa97b93ebb5b7dfd050cf6dacb"
                 }
 			}
 		}
