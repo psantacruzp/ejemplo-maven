@@ -2,13 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Compileee') {
+        stage('Compile') {
             steps {
                 script {
                     bat "mvn clean compile -e"
                 }
             }
         }
+		
+		stage('Sonar') {
+            steps {
+                script {
+                    bat "mvn clean test -e"
+                }
+          
         stage('Test') {
             steps {
                 script {
@@ -16,6 +23,7 @@ pipeline {
                 }
             }
         }
+	
         stage('Package') {
             steps {
                 script {
