@@ -15,6 +15,7 @@ pipeline {
                 script {
                     bat "mvn clean test -e"
                 }
+		}
           
         stage('Test') {
             steps {
