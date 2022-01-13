@@ -10,10 +10,13 @@ pipeline {
             }
         }
 		
-		stage('Sonarr') {
+		stage('Sonar') {
             steps {
                 script {
-                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=ejemplo-maven-developer -Dsonar.host.url=http:localhost:9000 -Dsonar.login=63e507533300f7aa97b93ebb5b7dfd050cf6dacb"
+                    def scannerHome = tool 'sonar-scanner';
+                    withSonarQubeEnv('sonar-server') {
+                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-maven-developer -Dsonar.sources=src -Dsonar.java.binaries=build"
+		            }
                 }
 			}
 		}
